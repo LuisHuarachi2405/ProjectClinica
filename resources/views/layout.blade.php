@@ -50,6 +50,7 @@
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
+                        
                     </div>
                 </form>
 
@@ -174,7 +175,7 @@
                                 {{ Auth::user()->name }}
                                 <a class="{{ Request::path() === 'pacientes' ? 'nav-link active' : 'nav-link' }}" href="{{ route('logout') }}" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();" >
-                                    Cerrar Sesión
+                                    Cerrar Sesión 
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -198,18 +199,18 @@
                                     <p>Pacientes</p>
                                 </a>
                             </li>
-
+                          @if ($tipo == "Farmacia")  
                             <li class="nav-item">
                                 <a href="farmacia"
                                     class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Farmacia
-                                        <?php use App\User; $users_count = User::all()->count(); ?>
-                                        <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
+                                        
                                     </p>
                                 </a>
                             </li>
+                          @endif  
 
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
@@ -279,5 +280,6 @@
         </div>
     </div>
 </body>
+
 
 </html>
