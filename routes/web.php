@@ -22,4 +22,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
 Route::get('/pacientes', 'PatientController@index');
+
+// Route::get('/farmacia', 'PatientController@index');
+
