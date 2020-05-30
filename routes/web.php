@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Login/login');
+    return view('Welcome');
 });
 
-Route::post('/', 'Login@Logeo');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/pacientes', 'PatientController@index');

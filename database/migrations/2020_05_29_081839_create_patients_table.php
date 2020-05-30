@@ -30,7 +30,7 @@ class CreatePatientsTable extends Migration
             $table->foreign('state_patient_id')->references('state_patient_id')->on('states_patient');
             $table->unsignedBigInteger('type_patient_id');
             $table->foreign('type_patient_id')->references('type_patient_id')->on('types_patient');
-            $table->unsignedInteger('oa');
+            $table->unsignedInteger('oa')->nullable();
             $table->string('insurance', 255); 
             $table->unsignedInteger('cellphone');
             $table->unsignedInteger('state');
