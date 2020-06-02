@@ -11,7 +11,7 @@ class Patient extends Model
     protected $primaryKey = 'patient_id';
 
     protected $fillable = ['patient_id','name','lastname','address',
-    'distric','reference','priority','doctor','user_id','user_delivery_id','state_patient_id',
+    'district','reference','priority','doctor','user_id','user_delivery_id','state_patient_id',
     'type_patient_id','oa','insurance','cellphone','state'];
 
     

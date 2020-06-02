@@ -25,6 +25,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/pacientes', 'PatientController@index');
+Route::get('/farmacia', 'FarmaciaController@index');
+
+
+Route::get('getpacientes','PatientController@getPatientes');
+
+Route::post('crearPaciente','PatientController@crearPaciente');
+
+Route::post('updatePatient','PatientController@updatePatient');
 
 // Route::get('/farmacia', 'PatientController@index');
 

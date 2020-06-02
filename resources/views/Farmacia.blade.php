@@ -3,7 +3,7 @@
 @section('content')
   
  
-<patients-component></patients-component> 
+<farmacia-component></farmacia-component> 
 
   
   

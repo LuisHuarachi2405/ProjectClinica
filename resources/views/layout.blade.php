@@ -199,20 +199,19 @@
                                     <p>Pacientes</p>
                                 </a>
                             </li>
-                          @if ($tipo == "Farmacia")  
+                          
                             <li class="nav-item">
                                 <a href="farmacia"
                                     class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Farmacia
-                                        
                                     </p>
                                 </a>
                             </li>
-                          @endif  
+                        
 
-                            <li class="nav-item has-treeview">
+                            <!-- <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon far fa-sticky-note"></i>
                                     <p>Notas<i class="fas fa-angle-left right"></i></p>
@@ -231,14 +230,14 @@
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Favoritas</p>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a href="notas/archivadas"
                                             class="{{ Request::path() === 'notas/archivadas' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Archivadas</p>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
 
@@ -280,6 +279,7 @@
         </div>
     </div>
 </body>
+<!-- @yiel('scriptModal') -->
 
 
 </html>
