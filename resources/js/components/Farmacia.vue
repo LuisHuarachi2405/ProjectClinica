@@ -22,11 +22,11 @@
                   <tr v-for="paciente in pacientes" :key="paciente.patient_id">
                       
 
-                    <td v-if="paciente.state_patient_id === 2">{{paciente.patient_id}}</td>
-                    <td v-if="paciente.state_patient_id === 2">{{paciente.name}}</td>
-                    <td v-if="paciente.state_patient_id === 2">{{paciente.priority}}</td>
+                    <td>{{paciente.patient_id}}</td>
+                    <td>{{paciente.name}}</td>
+                    <td>{{paciente.priority}}</td>
 
-                    <td v-if="paciente.state_patient_id === 2">
+                    <td>
                         <button class="btn btn-success" @click="DetallesModal(paciente)">Mandar a Despacho<i class="fas fa-user-plus fa-fw"></i></button>
                     </td>
                   </tr>
@@ -125,7 +125,8 @@
             <div class="col">
                 <div class="form-group">
                     <label for="oa" class="col-form-label">Codigo OA:</label>
-                    <input v-model="form.oa"  type="text" class="form-control" id="oa" name="oa" >
+                    <input v-model="form.oa" v-show="!editmode"  type="text" class="form-control" id="oa" name="oa" >
+                    <input v-model="form.oa" v-show="editmode" type="text" class="form-control" id="oa" name="oa" value="${form.insurance}" disabled>
                 </div>
             </div>
             <div class="col">
@@ -143,9 +144,18 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="oa" class="col-form-label">Personal deliverh</label>
+                    <input v-model="form.oa"  type="text" class="form-control" id="oa" name="oa" >
+                    
+                </div>
+            </div>
+        </div>
         <div class="modal-footer">
             <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="submit" v-show="editmode" class="btn btn-primary">Crear Codigo</button>
+            <button type="submit" v-show="editmode" class="btn btn-primary">Enviar a despacho</button>
             <button type="submit" v-show="!editmode" class="btn btn-primary">Crear</button>
         </div>
         </form>
@@ -190,6 +200,7 @@
                 this.form.reference = paciente.reference
                 this.form.priority = paciente.priority
                 this.form.doctor = paciente.doctor
+                this.form.oa = paciente.oa
                 this.form.insurance = paciente.insurance
                 this.form.cellphone = paciente.cellphone
 
@@ -203,12 +214,6 @@
                 this.editmode = false;
                 this.form = {}
                 $('#addNew').modal('show')
-            },
-            getPat(){
-                var dataPaci = "getpacientes";
-                axios.get(dataPaci).then((res)=> {
-                    this.pacientes = res.data;
-                });
             },
             updatePatient(){
                 
@@ -229,13 +234,20 @@
                 }).catch(()=>{
                     console.log('hubo error en creacion');
                 })
+            },
+            getPatient(){
+                var dataPaci = "getpaciFarmacia";
+                axios.get(dataPaci).then((res)=> {
+                    this.pacientes = res.data;
+                });
             }
 
         },
 
 
         created() {
-            this.getPat()
+            
+            this.getPatient()
         }
     }
 </script>

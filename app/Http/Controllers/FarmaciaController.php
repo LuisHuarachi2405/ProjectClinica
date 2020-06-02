@@ -18,4 +18,12 @@ class FarmaciaController extends Controller
     
         return view('farmacia',['tipo'=>$tipo["userType"]]);
      }
+
+     function getpatFarmacia(){
+      
+      $datos = DB::table('patients')
+      ->where('patients.state_patient_id','=',2)
+      ->get();
+      return $datos;
+     }
 }

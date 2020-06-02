@@ -22,8 +22,10 @@ class PatientController extends Controller
     
 
     function getPatientes(){
-        $pacientes = Patient::All();
-        return $pacientes;
+        $datos = DB::table('patients')
+        ->where('patients.state_patient_id','=',1)
+        ->get();
+        return $datos;
     }
 
     function crearPaciente(Request $request){

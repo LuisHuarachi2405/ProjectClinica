@@ -34,5 +34,7 @@ Route::post('crearPaciente','PatientController@crearPaciente');
 
 Route::post('updatePatient','PatientController@updatePatient');
 
+
+Route::get('getpaciFarmacia','FarmaciaController@getpatFarmacia');
 // Route::get('/farmacia', 'PatientController@index');
 

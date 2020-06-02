@@ -2100,6 +2100,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2131,6 +2141,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.reference = paciente.reference;
       this.form.priority = paciente.priority;
       this.form.doctor = paciente.doctor;
+      this.form.oa = paciente.oa;
       this.form.insurance = paciente.insurance;
       this.form.cellphone = paciente.cellphone;
       $('#addNew').modal('show');
@@ -2141,21 +2152,13 @@ __webpack_require__.r(__webpack_exports__);
       this.form = {};
       $('#addNew').modal('show');
     },
-    getPat: function getPat() {
-      var _this = this;
-
-      var dataPaci = "getpacientes";
-      axios.get(dataPaci).then(function (res) {
-        _this.pacientes = res.data;
-      });
-    },
     updatePatient: function updatePatient() {
-      var _this2 = this;
+      var _this = this;
 
       axios.post('updatePatient', {
         data: this.form
       }).then(function (res) {
-        _this2.getPat();
+        _this.getPat();
 
         $('#addNew').modal('hide');
         console.log('paciente actualizado');
@@ -2164,22 +2167,30 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     createPatient: function createPatient() {
-      var _this3 = this;
+      var _this2 = this;
 
       axios.post('crearPaciente', {
         data: this.form
       }).then(function (res) {
-        _this3.getPat();
+        _this2.getPat();
 
         $('#addNew').modal('hide');
         console.log('paciente creado');
       })["catch"](function () {
         console.log('hubo error en creacion');
       });
+    },
+    getPatient: function getPatient() {
+      var _this3 = this;
+
+      var dataPaci = "getpaciFarmacia";
+      axios.get(dataPaci).then(function (res) {
+        _this3.pacientes = res.data;
+      });
     }
   },
   created: function created() {
-    this.getPat();
+    this.getPatient();
   }
 });
 
@@ -38044,39 +38055,29 @@ var render = function() {
                   _vm._v(" "),
                   _vm._l(_vm.pacientes, function(paciente) {
                     return _c("tr", { key: paciente.patient_id }, [
-                      paciente.state_patient_id === 2
-                        ? _c("td", [_vm._v(_vm._s(paciente.patient_id))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.patient_id))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 2
-                        ? _c("td", [_vm._v(_vm._s(paciente.name))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.name))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 2
-                        ? _c("td", [_vm._v(_vm._s(paciente.priority))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.priority))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 2
-                        ? _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-success",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.DetallesModal(paciente)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v("Mandar a Despacho"),
-                                _c("i", {
-                                  staticClass: "fas fa-user-plus fa-fw"
-                                })
-                              ]
-                            )
-                          ])
-                        : _vm._e()
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success",
+                            on: {
+                              click: function($event) {
+                                return _vm.DetallesModal(paciente)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v("Mandar a Despacho"),
+                            _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                          ]
+                        )
+                      ])
                     ])
                   })
                 ],
@@ -38810,10 +38811,50 @@ var render = function() {
                               rawName: "v-model",
                               value: _vm.form.oa,
                               expression: "form.oa"
+                            },
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: !_vm.editmode,
+                              expression: "!editmode"
                             }
                           ],
                           staticClass: "form-control",
                           attrs: { type: "text", id: "oa", name: "oa" },
+                          domProps: { value: _vm.form.oa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "oa", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.oa,
+                              expression: "form.oa"
+                            },
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.editmode,
+                              expression: "editmode"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "oa",
+                            name: "oa",
+                            value: "${form.insurance}",
+                            disabled: ""
+                          },
                           domProps: { value: _vm.form.oa },
                           on: {
                             input: function($event) {
@@ -38995,6 +39036,43 @@ var render = function() {
                                 "cellphone",
                                 $event.target.value
                               )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-form-label",
+                            attrs: { for: "oa" }
+                          },
+                          [_vm._v("Personal deliverh")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.oa,
+                              expression: "form.oa"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", id: "oa", name: "oa" },
+                          domProps: { value: _vm.form.oa },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "oa", $event.target.value)
                             }
                           }
                         })
