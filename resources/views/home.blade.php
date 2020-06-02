@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="row">
+<!--div class="row">
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
@@ -29,9 +29,9 @@
                 <a href="#" class="card-link">Another link</a>
               </div>
             </div><!-- /.card -->
-          </div>
+          </!--div>
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
+          <!--div class="col-lg-6">
             <div class="card">
               <div class="card-header">
                 <h5 class="m-0">Featured</h5>
@@ -57,6 +57,6 @@
             </div>
           </div>
           <!-- /.col-md-6 -->
-        </div>
+        <!--/div>
 @endsection
 

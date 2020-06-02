@@ -70,9 +70,9 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="address" class="col-form-label">Edad:</label>
-                    <input v-model="form.address"  v-show="!editmode" type="number" class="form-control" id="address" name="address">
-                    <input v-model="form.address"  v-show="editmode" type="number" class="form-control" id="address" name="address" value="${form.address}" disabled>
+                    <label for="address" class="col-form-label">Dirección:</label>
+                    <input v-model="form.address"  v-show="!editmode" type="text" class="form-control" id="address" name="address">
+                    <input v-model="form.address"  v-show="editmode" type="text" class="form-control" id="address" name="address" value="${form.address}" disabled>
                 </div>
             </div>
             <div class="col">

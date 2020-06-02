@@ -2124,6 +2124,7 @@ __webpack_require__.r(__webpack_exports__);
         reference: '',
         priority: '',
         doctor: '',
+        user_delivery_id: '',
         oa: '',
         insurance: '',
         cellphone: ''
@@ -2141,6 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.reference = paciente.reference;
       this.form.priority = paciente.priority;
       this.form.doctor = paciente.doctor;
+      this.form.user_delivery_id = paciente.user_delivery_id;
       this.form.oa = paciente.oa;
       this.form.insurance = paciente.insurance;
       this.form.cellphone = paciente.cellphone;
@@ -38327,7 +38329,7 @@ var render = function() {
                             staticClass: "col-form-label",
                             attrs: { for: "address" }
                           },
-                          [_vm._v("Edad:")]
+                          [_vm._v("Dirección:")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -38347,7 +38349,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             id: "address",
                             name: "address"
                           },
@@ -38379,7 +38381,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             id: "address",
                             name: "address",
                             value: "${form.address}",
@@ -39050,9 +39052,9 @@ var render = function() {
                           "label",
                           {
                             staticClass: "col-form-label",
-                            attrs: { for: "oa" }
+                            attrs: { for: "user_delivery_id" }
                           },
-                          [_vm._v("Personal deliverh")]
+                          [_vm._v("Personal delivery")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -39060,19 +39062,27 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.oa,
-                              expression: "form.oa"
+                              value: _vm.form.user_delivery_id,
+                              expression: "form.user_delivery_id"
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", id: "oa", name: "oa" },
-                          domProps: { value: _vm.form.oa },
+                          attrs: {
+                            type: "text",
+                            id: "user_delivery_id",
+                            name: "user_delivery_id"
+                          },
+                          domProps: { value: _vm.form.user_delivery_id },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(_vm.form, "oa", $event.target.value)
+                              _vm.$set(
+                                _vm.form,
+                                "user_delivery_id",
+                                $event.target.value
+                              )
                             }
                           }
                         })
@@ -39497,7 +39507,7 @@ var render = function() {
                             staticClass: "col-form-label",
                             attrs: { for: "address" }
                           },
-                          [_vm._v("Edad:")]
+                          [_vm._v("Dirección:")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -39517,7 +39527,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             id: "address",
                             name: "address"
                           },
@@ -39549,7 +39559,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             id: "address",
                             name: "address",
                             value: "${form.address}",
@@ -52737,8 +52747,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Proyecto-Clinica\Nueva carpeta\ProjectClinica\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Proyecto-Clinica\Nueva carpeta\ProjectClinica\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/fernandoht/Desktop/clinicarequipa/Proyecto Web/ProjectClinica/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/fernandoht/Desktop/clinicarequipa/Proyecto Web/ProjectClinica/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

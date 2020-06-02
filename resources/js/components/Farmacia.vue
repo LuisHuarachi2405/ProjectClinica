@@ -70,9 +70,9 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="address" class="col-form-label">Edad:</label>
-                    <input v-model="form.address"  v-show="!editmode" type="number" class="form-control" id="address" name="address">
-                    <input v-model="form.address"  v-show="editmode" type="number" class="form-control" id="address" name="address" value="${form.address}" disabled>
+                    <label for="address" class="col-form-label">Dirección:</label>
+                    <input v-model="form.address"  v-show="!editmode" type="text" class="form-control" id="address" name="address">
+                    <input v-model="form.address"  v-show="editmode" type="text" class="form-control" id="address" name="address" value="${form.address}" disabled>
                 </div>
             </div>
             <div class="col">
@@ -147,8 +147,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="oa" class="col-form-label">Personal deliverh</label>
-                    <input v-model="form.oa"  type="text" class="form-control" id="oa" name="oa" >
+                    <label for="user_delivery_id" class="col-form-label">Personal delivery</label>
+                    <input v-model="form.user_delivery_id"  type="text" class="form-control" id="user_delivery_id" name="user_delivery_id" >
                     
                 </div>
             </div>
@@ -183,6 +183,7 @@
                     reference: '',
                     priority: '',
                     doctor: '',
+                    user_delivery_id: '',
                     oa: '',
                     insurance:'',
                     cellphone:''
@@ -200,6 +201,7 @@
                 this.form.reference = paciente.reference
                 this.form.priority = paciente.priority
                 this.form.doctor = paciente.doctor
+                this.form.user_delivery_id = paciente.user_delivery_id
                 this.form.oa = paciente.oa
                 this.form.insurance = paciente.insurance
                 this.form.cellphone = paciente.cellphone
