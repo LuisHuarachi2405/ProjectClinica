@@ -22,11 +22,11 @@
                   <tr v-for="paciente in pacientes" :key="paciente.patient_id">
                       
 
-                    <td v-if="paciente.state_patient_id === 1">{{paciente.patient_id}}</td>
-                    <td v-if="paciente.state_patient_id === 1">{{paciente.name}}</td>
-                    <td v-if="paciente.state_patient_id === 1">{{paciente.priority}}</td>
+                    <td >{{paciente.patient_id}}</td>
+                    <td >{{paciente.name}}</td>
+                    <td >{{paciente.priority}}</td>
 
-                    <td v-if="paciente.state_patient_id === 1">
+                    <td >
                         <button class="btn btn-success" @click="DetallesModal(paciente)">Detalles<i class="fas fa-user-plus fa-fw"></i></button>
                     </td>
                   </tr>

@@ -39104,7 +39104,7 @@ var render = function() {
                         staticClass: "btn btn-primary",
                         attrs: { type: "submit" }
                       },
-                      [_vm._v("Crear Codigo")]
+                      [_vm._v("Enviar a despacho")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -39225,39 +39225,29 @@ var render = function() {
                   _vm._v(" "),
                   _vm._l(_vm.pacientes, function(paciente) {
                     return _c("tr", { key: paciente.patient_id }, [
-                      paciente.state_patient_id === 1
-                        ? _c("td", [_vm._v(_vm._s(paciente.patient_id))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.patient_id))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 1
-                        ? _c("td", [_vm._v(_vm._s(paciente.name))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.name))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 1
-                        ? _c("td", [_vm._v(_vm._s(paciente.priority))])
-                        : _vm._e(),
+                      _c("td", [_vm._v(_vm._s(paciente.priority))]),
                       _vm._v(" "),
-                      paciente.state_patient_id === 1
-                        ? _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-success",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.DetallesModal(paciente)
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v("Detalles"),
-                                _c("i", {
-                                  staticClass: "fas fa-user-plus fa-fw"
-                                })
-                              ]
-                            )
-                          ])
-                        : _vm._e()
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success",
+                            on: {
+                              click: function($event) {
+                                return _vm.DetallesModal(paciente)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v("Detalles"),
+                            _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                          ]
+                        )
+                      ])
                     ])
                   })
                 ],
